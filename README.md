@@ -4,7 +4,7 @@ This project provides the documentation to [Siisurit](https://siisurit.com).
 
 ## Contributing
 
-If you have suggestions on how to improve these documents, you can do so yourself. Read the [contribution guide](CONTRIBUTION.md) on how to set up an environment with [MkDocs](https://www.mkdocs.org/).
+If you have suggestions on how to improve these documents, you can do so yourself. Read the [contribution guide](CONTRIBUTING.md) on how to set up an environment with [MkDocs](https://www.mkdocs.org/).
 
 ## License
 
