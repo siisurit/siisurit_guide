@@ -1,0 +1,35 @@
+# Configuration for MkDocs
+#
+# For available options, see <https://www.mkdocs.org/user-guide/configuration/>.
+docs_dir: guide
+
+repo_url: https://github.com/siisurit/siisurit_guide/
+edit_uri: edit/main/guide/
+
+site_name: Siisurit guide
+site_dir: build/guide
+site_author: "Siisurit e.U."
+site_description: "User and admin documentation for Siisurit, an application to improve your project planing abilities."
+
+copyright: Copyright &copy; 2025 <a href="https://siisurit.com">Siisurit e.U.</a>.
+
+nav:
+  - Overview: index.md
+  - User guide: user/
+  - admin guide: admin/
+
+markdown_extensions:
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - literate-nav:
+      nav_file: README.md
+
+theme:
+  name: material
+
+validation:
+  nav:
+    omitted_files: warn
