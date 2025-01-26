@@ -19,10 +19,10 @@ To build the documentation, run:
 sh scripts/build_guide.sh
 ```
 
-After that, to browse the local copy, run:
+To browse the local copy, run:
 
 ```bash
-uv run mkdocs serve
+sh scripts/serve_guide.sh
 ```
 
 ## Adding and changing documents
