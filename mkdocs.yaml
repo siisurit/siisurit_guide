@@ -16,9 +16,16 @@ copyright: Copyright &copy; 2025 <a href="https://siisurit.com">Siisurit e.U.</a
 nav:
   - Overview: index.md
   - User guide: user/
-  - admin guide: admin/
+  - Admin guide: admin/
 
 markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - toc:
       permalink: true
 
@@ -28,6 +35,8 @@ plugins:
       nav_file: README.md
 
 theme:
+  features:
+    - content.code.copy
   name: material
 
 validation:
