@@ -8,5 +8,5 @@ This guide is intended for site administrators that want to install, configure a
 
 - [Access and license](access-and-license.md)
 - [Requirements](requirements.md)
-- [Installation](installation/installation.md)
+- [Installation](installation/index.md)
 - [Configuration](configuration/index.md)
