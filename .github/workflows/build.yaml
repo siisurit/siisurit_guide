@@ -1,0 +1,22 @@
+name: Build Siisurit guide
+
+on: ["pull_request", "push"]
+
+jobs:
+  build-guide:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up project
+        run: |
+          sh scripts/set_up_project.sh
+
+      - name: Build guide
+        run: |
+          sh scripts/build_guide.sh
