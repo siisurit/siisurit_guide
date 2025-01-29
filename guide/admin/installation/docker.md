@@ -6,14 +6,15 @@ This chapter explains how to install and configure Siisurit using its docker con
 
 ## File structure
 
-The following will assume a Ubuntu 24 LTS server and a file structure like:
+The following will assume an Ubuntu 24 LTS server and a file structure like the one found below to be stored in for example `/opt/siisurit/`:
 
-- /opt/siisurit/
-  - .env
-  - compose.yaml
-  - config/
-    - demo-organization.yaml
-    - users.csv
+```
+.env
+compose.yaml
+config/
+- example-organization.yaml
+- users.csv
+```
 
 In the following, all these files are be explained using common example you can you as basis for your own configuration.
 
@@ -36,7 +37,7 @@ The environment file `.env` contains the settings for the Siisurit service. This
 
 As starting point:
 
-```dotenv
+```bash
 SII_ENVIRONMENT=test
 
 # Create a secret key by running:
@@ -63,36 +64,36 @@ In addition, you will want to add any tokens for your task and time trackers her
 
 For example, this could be the settings for a project that uses GitHub as task tracker and Kimai as time tracker:
 
-```dotenv
+```bash
 EXAMPLE_GITHUB_USERNAME="alice"
 EXAMPLE_GITHUB_TOKEN="ghp_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
 EXAMPLE_KIMAI_TOKEN="1234567890123456789012345"
 ```
 
-# User list: users.csv
+## User list: users.csv
 
 The users file `users.csv` contains the users to be created each time siisurit restarts. Users that already exist are not re-created again.
 
-Example:
+Example (change the passwords):
 
 ```csv
 username,password,is_staff,is_superuser,first_name,last_name,email
-admin_alice,no-secret,x,x,Alice,Adams,support@example.com
-alice,no-secret,x,x,,Alice,Adams,alice@example.com
-alice,no-secret,,,Alice,Adams
-bob,no-secret,,,Bob,Brown
-claire,no-secret,,,Claire,Clark
-daniel,no-secret,,,Daniel,Davis
+admin_alice,not-secret,x,x,Alice,Adams,support@example.com
+alice,not-secret,x,x,,Alice,Adams,alice@example.com
+alice,not-secret,,,Alice,Adams
+bob,not-secret,,,Bob,Brown
+claire,not-secret,,,Claire,Clark
+daniel,not-secret,,,Daniel,Davis
 ```
 
 The `is_staff` column indicates the user can log in at the admin interface of the backend, and can read most data available there.
 
-The `is_staff` marks as user as site administrator, which add permission to edit data in the admin interface, and upload new organizations from scratch.
+The `is_superuser` marks as user as site administrator, which add permission to edit data in the admin interface, and upload new organizations from scratch.
 
 ## Compose file: compose.yaml
 
-The [compose file](../configuration/compose-file.md) describes the services required to run Siisurit in a way that they can be started using Docker's `docker compose` command. This includes the frontend, backend, and the database.
+The [compose file](../configuration/compose-file.md) describes the services required to run Siisurit in a way that they can be started using Docker's [`docker compose`](https://docs.docker.com/compose/) command. This includes the frontend, backend, and the database.
 
 Here's an example that utilized the `.env` and `config/users.csv` from above:
 

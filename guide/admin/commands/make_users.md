@@ -1,3 +1,3 @@
-## make_users
+# make_users
 
 To be done, for now use `--help`.
