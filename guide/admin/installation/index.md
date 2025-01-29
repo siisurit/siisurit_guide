@@ -1,4 +1,4 @@
-# Installation
+# Overview
 
 - [Docker installation](docker.md)
 - [Nginx setup](nginx.md)

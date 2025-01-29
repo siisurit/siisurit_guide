@@ -1,4 +1,4 @@
-# Management commands
+# Overview
 
 For maintaining a Siisurit instance, various management commands are available:
 
@@ -7,7 +7,7 @@ For maintaining a Siisurit instance, various management commands are available:
 Management command are installed on the docker container and can be run using
 
 ```sh
-docker compose exec backend python manage.py {command} {option} option} ...
+docker compose exec backend python manage.py {command} {option} {option} ...
 ```
 
 For example:
@@ -16,7 +16,7 @@ For example:
 docker compose exec backend python manage.py make_users --help
 ```
 
-In this case, the `{command}` is `make_users` and `{options}` is `--help`.
+In this case, the `{command}` is `make_users` and `{option}` is `--help`.
 
 Running this particular command shows the quick help of this particular command.
 

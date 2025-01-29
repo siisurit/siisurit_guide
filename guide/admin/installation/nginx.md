@@ -11,7 +11,7 @@ Assuming you already created a DNS entries for
 
 put the following configuration into `/etc/nginx/sites-available/siisurit.example.com.conf`:
 
-```nginx configuration
+```nginx
 server {
     server_name app.siisurit.example.com;
 
