@@ -13,4 +13,102 @@ FAVORITE_NUMBER=23
 GREETING="Hello ${FULL_NAME}, your favorite number is ${FAVORITE_NUMBER}"
 ```
 
-❓TODO: #6 Add environment variables
+For more information about this format refer to the [README](https://github.com/theskumar/python-dotenv/blob/main/README.md) of the dotenv project.
+
+# Environment variables
+
+## General
+
+### SII_ENVIRONMENT (required)
+
+The environment the application runs in to automatically configure basic settings. Possible values are:
+
+- local - for local development
+- ci - for continuous integration
+- stage - for testing
+- production - for production
+
+### SII_ENV_FILE
+
+The environment file from which to load the settings.
+
+Default: `.env` in the current folder.
+
+### SII_SECRET_KEY (required in production)
+
+Key to use for computing random hashes.
+
+To generate such a key, run:
+
+```bash
+python manage.py shell -c 'from django.core.management import utils; print(utils.get_random_secret_key())'
+```
+
+which will output something along the line of:
+
+```
+z^#8_gw6%m=3-%h=u6c5xm_^!xm!q-(9$b4t2vwn#s!cwu(w=4
+```
+
+### SII_ALLOWED_HOSTS
+
+IP addressed and hostnames of allowed hosts as a single string. Multiple entries can be separated using a space or comma.
+
+Default: Depends on the environment.
+
+### SII_CORS_ALLOW_ALL_ORIGINS
+
+For the moment, this must be `true` in case you want to access the backend using the Flutter frontend from any other host than localhost.
+
+Default: True.
+
+### SII_CSRF_TRUSTED_ORIGINS
+
+IP addresses and hostnames of trusted origins for safe requests as described in [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/4.2/ref/settings/#csrf-trusted-origins). Multiple entries can be separated using a space or comma.
+
+### SII_POSTGRES_DATABASE\_\*
+
+Settings for PostgreSQL database:
+
+- SII_POSTGRES_DATABASE: Defaults to "sii\_\<environment\>", e.g. "siisurit_local".
+- SII_POSTGRES_HOST: Defaults to localhost.
+- SII_POSTGRES_PASSWORD: Required for test and production, defaults to demo password in local and ci.
+- SII_POSTGRES_PORT: Defaults to 5433 in local and 5432 in all other environments.
+- SII_POSTGRES_USERNAME: Defaults to "postgres".
+
+### SII_EMAIL\_\*
+
+Settings for SMTP server to send emails as described in [Sending email](https://docs.djangoproject.com/en/4.2/topics/email/):
+
+- SII_EMAIL_HOST: Defaults to "localhost"
+- SII_EMAIL_PORT: Defaults to 1033 on local, 587 on production and 25 on all other environments.
+- SII_EMAIL_USERNAME: Defaults to empty.
+- SII_EMAIL_PASSWORD: Defaults to empty.
+
+## Job queue
+
+!!! warning "Impeding job queue upgrade"
+
+    Eventually Siisurit will switch to a more scalable and persistent job queue than the current one, which is based on thread pools. Consequently, these environment variables will change to match the improved capabilities.
+
+### SII_USE_ASYNC_QUEUE
+
+Specified whether scheduled tasks should be run asynchronously.
+
+Defaults to true.
+
+### SII_ASYNC_QUEUE_TIMEOUT_IN_SECONDS
+
+If `SII_USE_ASYNC_QUEUE` is true, this specifies the timeout in seconds after which a background job should be considered to be failed.
+
+Defaults to 900, which represents 15 minutes.
+
+### SII_SENTRY_DSN
+
+The DSN for a [Sentry](https://sentry.io) server various information should be sent to. If omitted or empty, no information is sent.
+
+Example:
+
+```dotenv
+SII_SENTRY_DSN="https://0123456789abcdf@sentry.example.com/123"
+```
