@@ -10,7 +10,7 @@ The finished panel should look something like this:
 
 ## Add a panel
 
-See the chapter on [panels and visualization](https://grafana.com/docs/grafana/latest/panels-visualizations/) in the Grafana documentation.
+For the general steps to add a new panel, see the chapter on [panels and visualization](https://grafana.com/docs/grafana/latest/panels-visualizations/) in the Grafana documentation.
 
 ## Time range
 
@@ -18,7 +18,7 @@ Chose "Last 1 year" or any number of months that make sense for your projects.
 
 ## Queries
 
-- Data source: siisurit-postgres
+- Data source: Siisurit report
 - In Query A: Select "Code" and use the following SQL select:
   ```sql
   select
@@ -26,16 +26,18 @@ Chose "Last 1 year" or any number of months that make sense for your projects.
     username,
     sum(duration_in_hours) as "Duration"
   from
-    report_work
+    report.work
   group by
     1, 2
   order by
     1, 2
   ```
 
+At this point, click "Run query" to check if it returns any data already. If not, import a project first before continuing. Otherwise, Grafana will be unable to provide meta information like result fields and types of queries.
+
 ## Transformations
 
-Choose "Partition by value"
+Choose "Partition by values"
 
 - Field: username
 - Naming: As label
@@ -45,16 +47,16 @@ Choose "Partition by value"
 
 Choose "Bar chart"
 
-## Panel options
-
-Title: Monthly work per member [h]
-
 ## Bar chart
 
 - X Axis: Month (base field name)
 - X-axis labels minimum spacing: Small
 - Show values: Auto
 - Stacking: Normal
+
+## Panel options
+
+Title: Monthly work per member \[h]
 
 ## Standard options
 

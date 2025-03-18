@@ -2,7 +2,7 @@
 
 For advanced reporting, Siisurit provides SQL database views that can be accessed to generate charts and graphs using applications designed for reporting and business intelligence.
 
-This chapter describes the available views and gives and example of accessing them using [Grafana](https://grafana.com/), which can easily be [integrated with an on-premis installation of Siisurit](../admin/installation/grafana.md).
+This chapter describes the available views and gives and example of accessing them using [Grafana](https://grafana.com/), which can be [integrated with an on-premise installation of Siisurit](../admin/installation/grafana.md).
 
 ## Available views
 
