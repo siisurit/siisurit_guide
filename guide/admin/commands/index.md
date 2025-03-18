@@ -22,11 +22,14 @@ Running this particular command shows the quick help of this particular command.
 
 ## Quick help
 
-All management command support the option `--help`, which shows a quick help about the command. This inlcudes a short description of the purpose of the command, and which options are available. Each option has its own description, which typically includes valid values or ranges.
+All management command support the option `--help`, which shows a quick help about the command. This includes a short description of the purpose of the command, and which options are available. Each option has its own description, which typically includes valid values or ranges.
 
 ## Available commands
 
 - [clear_caches](clear_caches.md): Clear application caches, especially for API download
+- [clear_reports](clear_reports.md): Remove all report related SQL components, except for the "report" schema
+- [make_reports](make_reports.md): Add report related SQL components
+- [make_report_user](make_report_user.md): Create PostgreSQL user with read-only access to reports
 - [make_users](make_users.md): Bulk process users using a CSV file
 - [remove_organization](remove_organization.md): Remove an organization and all data related to it.
 - [update_organization](updape_organization.md): Update all organization and all its projects, trackers, etc according to an organization configuration.
