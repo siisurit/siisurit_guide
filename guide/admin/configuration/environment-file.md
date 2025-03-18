@@ -66,7 +66,7 @@ Default: True.
 
 IP addresses and hostnames of trusted origins for safe requests as described in [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/4.2/ref/settings/#csrf-trusted-origins). Multiple entries can be separated using a space or comma.
 
-### SII_POSTGRES_DATABASE\_\*
+### SII*POSTGRES*\*
 
 Settings for PostgreSQL database:
 
@@ -75,6 +75,11 @@ Settings for PostgreSQL database:
 - SII_POSTGRES_PASSWORD: Required for test and production, defaults to demo password in local and ci.
 - SII_POSTGRES_PORT: Defaults to 5433 in local and 5432 in all other environments.
 - SII_POSTGRES_USERNAME: Defaults to "postgres".
+
+Optionally, a read-only report user to be used by external business intelligence or chart tools such as [Grafana](../../admin/installation/grafana.md) can be utilized. These environment variables just specify the report database. Before being able to access the database with this user, it [has to be created](../../admin/installation/sql-report-user.md).
+
+- SII_POSTGRES_REPORT_PASSWORD
+- SII_POSTGRES_REPORT_USERNAME
 
 ### SII_EMAIL\_\*
 
