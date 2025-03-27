@@ -19,9 +19,13 @@ grafana:
   depends_on:
     - postgres
   restart: unless-stopped
+  # The user running `docker compose`, which must have permission to write
+  # to "./grafana/data/". If you are running as root, then set it to 0
+  # else find the right id with the `id -u command`.
+  user: "0"
   volumes:
-    - ./grafana/provisioning:/etc/grafana/provisioning
     - ./grafana/data:/var/lib/grafana
+    - ./grafana/provisioning:/etc/grafana/provisioning
   ports:
     - "8236:3000"
   env_file:
