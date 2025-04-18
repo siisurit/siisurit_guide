@@ -1,3 +1,3 @@
-## Organization configuration
+## Organization
 
 ❓TODO#7 Add organization configuration

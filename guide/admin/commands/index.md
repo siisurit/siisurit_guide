@@ -31,8 +31,9 @@ All management command support the option `--help`, which shows a quick help abo
 - [make_reports](make_reports.md): Add report related SQL components
 - [make_report_user](make_report_user.md): Create PostgreSQL user with read-only access to reports
 - [make_users](make_users.md): Bulk process users using a CSV file
+- [match_project](update_project.md): Match data in task and time trackers with each other.
 - [remove_organization](remove_organization.md): Remove an organization and all data related to it.
-- [update_organization](updape_organization.md): Update all organization and all its projects, trackers, etc according to an organization configuration.
+- [update_organization](updape_organization.md): Update all organization and all its projects, trackers, etc. according to an organization configuration.
 - [update_project](update_project.md): Download data for task and time trackers, and match them with each other.
 
 ## Django commands

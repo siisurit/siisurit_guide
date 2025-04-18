@@ -6,7 +6,7 @@ These files are:
 
 - [Environment file](environment-file.md)
 - [User list](user-list.md)
-- [Organization configuration](../../user/organization-configuration.md)
+- [Organization configuration](../../user/configuration/organization-configuration.md)
 - [Compose file](compose-file.md)
 
 Alternatively, a site admin can create or fine tune the configuration in the admin site, which can be accessed by opening the backend URL in the browser.

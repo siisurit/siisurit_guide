@@ -4,7 +4,7 @@ Now that the Siisurit is up and running, it's time to set up an organization and
 
 ## Organization and project configuration:
 
-First, we need an [organization configuration](../../user/organization-configuration.md).
+First, we need an [organization configuration](../../user/configuration/organization-configuration.md).
 
 Here is an `example-organization.yaml` you can use as basis for your own organization:
 
