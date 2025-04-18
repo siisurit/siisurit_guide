@@ -14,43 +14,56 @@ Here is an example for the additional parts in your `compose.yaml`:
 
 ```yaml
 grafana:
-  container_name: "grafana"
+  container_name: "siisurit-grafana"
   image: grafana/grafana:latest
   depends_on:
     - postgres
   restart: unless-stopped
-  # The user running `docker compose`, which must have permission to write
-  # to "./grafana/data/". If you are running as root, then set it to 0
-  # else find the right id with the `id -u command`.
-  user: "0"
   volumes:
     - ./grafana/data:/var/lib/grafana
     - ./grafana/provisioning:/etc/grafana/provisioning
+  # The user running `docker compose`, which must have permission to write
+  # to "./grafana/data/". If you are running as root, then set it to 0
+  # else find the right id with the `id -u` command.
+  user: "1000"
   ports:
     - "8236:3000"
   env_file:
     - "./.env"
 ```
 
-This way, Grafana automatically starts
+This way, Grafana automatically starts together with Siisurit.
 
 ## Initial Grafana set up
 
 ### Connect
 
-After Grafana is up and running, you can connect to it: <http://localhost:8235/>.
+After Grafana is up and running, you can connect to it: <http://localhost:8236/>.
 
 ### Default Grafana user
 
 By default, a Grafana user "admin" with the password "admin" has been created.
 
-Upon first login, a password change is encouraged.
+Upon first log in, a password change is encouraged.
 
 ### Use provisions for the siisurit data source
 
-If you are using the standard provisions
+To use standard provisions, add a `.../grafana/provisionin/datasources/datasource.yml` with the following content:
 
-TODO: Explain how the standard provisions can be obtained.
+```yaml
+apiVersion: 1
+datasources:
+  - name: siisurit_postgres
+    default: true
+    type: postgres
+    url: ${SII_POSTGRES_HOST}:5432
+    database: ${SII_POSTGRES_DATABASE}
+    user: ${SII_POSTGRES_REPORT_USERNAME}
+    secureJsonData:
+      password: ${SII_POSTGRES_REPORT_PASSWORD}
+    jsonData:
+      sslmode: disable
+```
 
 ### Manually add the siisurit data source
 
@@ -70,9 +83,44 @@ To add a datasource pointing to the Siisurit database:
 
 See the chapter on "[Adding a Grafana panel](../../user/grafana/index.md)" in the user guide.
 
-## Security advise
+## Adding Grafana users from the command line
+
+First, make sure the environment variable `$SII_GRAFANA_ADMIN_PASSWORD` is available to the shell, either by settings it:
+
+```bash
+export SII_GRAFANA_ADMIN_PASSWORD="not-secret"
+```
+
+or by including them into the current shell:
+
+```bash
+. ./.env
+```
+
+Then use `cURL` and the Grafana API to creat a new user. For example:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+  "name":"Alice Adams",
+  "email":"alice@example.com",
+  "login":"alice",
+  "password":"not-secret"
+}' https://admin:$SII_GRAFANA_ADMIN_PASSWORD@grafana.example.com/api/admin/users
+```
+
+Replace the `grafana.example.com` in the URL with the domain of your Grafana server, and modify the user details as needed.
+
+## Security advice
 
 In order to make the installation as secure as possible, consider making the following adjustments:
 
 - When signin in for the first time, change the default password of the "admin" user.
 - Use a separate [SQL report user](sql-report-user.md) for the Grafana connector to the Siisurit database.
+
+## Admin password reset
+
+In case you lost the Grafana admin password, you can reset it using the `grafana cli` command (replace `TODO` with the new password):
+
+```bash
+docker compose exec grafana grafana cli admin reset-admin-password TODO
+```
