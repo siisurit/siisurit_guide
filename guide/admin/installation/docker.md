@@ -105,7 +105,7 @@ services:
     container_name: "siisurit-postgres"
     image: "postgres:16" # Same as Ubuntu 24 LTS
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
     env_file:
       - ".env"
     environment:
