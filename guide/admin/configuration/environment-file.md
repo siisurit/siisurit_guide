@@ -92,7 +92,7 @@ Settings for SMTP server to send emails as described in [Sending email](https://
 
 ### SII_UUID_HOST
 
-Internally, Siisurit uses [UUIDv7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for unique identifier of database entries. This essentially consists of a timestamp and a random number. This allows better cache prediction than other UUID versions, and reduces the probability of clashes compared to the fully random UUIDv4. However, different hosts can still generate the same UUID, although with a very low probability.
+Internally, Siisurit uses [UUIDv7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for unique identifiers of database entries. This essentially consists of a timestamp and a random number. This allows better cache prediction than other UUID versions, and reduces the probability of clashes compared to the fully random UUIDv4. However, different hosts can still generate the same UUID, although with a very low probability.
 
 To guarantee uniqueness even across hosts, a host ID can be included (akin to UUIDv1, which includes the entire media access code (MAC) of the host).
 
