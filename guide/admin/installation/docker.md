@@ -95,7 +95,7 @@ The `is_superuser` marks as user as site administrator, which add permission to 
 
 The [compose file](../configuration/compose-file.md) describes the services required to run Siisurit in a way that they can be started using Docker's [`docker compose`](https://docs.docker.com/compose/) command. This includes the frontend, backend, and the database.
 
-Here's an example that utilized the `.env` and `config/users.csv` from above:
+Here's an example that uses the `.env` and `config/users.csv` from above:
 
 ```yaml
 ## Siisurit app and backend
@@ -103,7 +103,7 @@ name: siisurit
 services:
   postgres:
     container_name: "siisurit-postgres"
-    image: "postgres:16" # Same as Ubuntu 24 LTS
+    image: "pgvector/pgvector:pg16"
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     env_file:
@@ -182,9 +182,9 @@ $ curl -Is http://localhost:8235 | head -1
 HTTP/1.1 200 OK
 ```
 
-## Start as background service
+## Start as a background service
 
-To run Siisurit as background service that even automatically restarts after a reboot, run;
+To run Siisurit as a background service that even automatically restarts after a reboot, run;
 
 ```bash
 docker compose up --detach
