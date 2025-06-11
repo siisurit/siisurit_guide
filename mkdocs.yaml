@@ -17,6 +17,7 @@ nav:
   - Overview: index.md
   - User guide: user/
   - Admin guide: admin/
+  - Release notes: release/
 
 markdown_extensions:
   - admonition

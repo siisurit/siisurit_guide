@@ -10,3 +10,4 @@ This guide is intended for site administrators that want to install, configure a
 - [Requirements](requirements.md)
 - [Installation](installation/index.md)
 - [Configuration](configuration/index.md)
+- [Operation](operation/index.md)
