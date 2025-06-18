@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to the admin guide for Siisurit, an application to bring piece of mind to your projects by putting the data you already have in context.
+Welcome to the admin guide for Siisurit, an application to bring peace of mind to your projects by putting the data you already have in context.
 
 This guide is intended for site administrators that want to install, configure and operate Siisurit as a web service in their own infrastructure.
 

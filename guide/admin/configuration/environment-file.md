@@ -94,7 +94,7 @@ Settings for SMTP server to send emails as described in [Sending email](https://
 
 Internally, Siisurit uses [UUIDv7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for unique identifiers of database entries. This essentially consists of a timestamp and a random number. This allows better cache prediction than other UUID versions, and reduces the probability of clashes compared to the fully random UUIDv4. However, different hosts can still generate the same UUID, although with a very low probability.
 
-To guarantee uniqueness even across hosts, a host ID can be included (akin to UUIDv1, which includes the entire media access code (MAC) of the host).
+To guarantee uniqueness even across hosts, a host ID can be included.
 
 Unlike UUIDv1, which contains the entire 64 bits for the MAC ID and consequently leaks information, the host ID is a number you can assign yourself. If you have multiple hosts with a separate Siisurit database on them, the recommendation is to give them a host ID of 1, 2, 3, and so on. The entire UUID will still be hard to guess, and in case the host database should be merged later on, you can be confident that they do not contain any clashing IDs.
 
@@ -107,6 +107,42 @@ SII_UUID_HOST=1
 Default: 0.
 
 The valid range is between 0 and 32,767.
+
+## Similarity search and AI
+
+### SII_OLLAMA_CHAT_MODEL
+
+The name of the model to use for chat-related AI requests.
+
+Defaults to a model that can process both English and German with a small size that still gives decent results in many scenarios.
+
+Example:
+
+```dotenv
+SII_OLLAMA_CHAT_MODEL=gemma3:4b
+```
+
+### SII_OLLAMA_EMBEDDING_MODEL
+
+The name of the model to use for embeddings during similarity search.
+
+Defaults to a model that can process both English and German with a small size that still gives decent results in many scenarios.
+
+Example:
+
+```dotenv
+SII_OLLAMA_EMBEDDING_MODEL=jina/jina-embeddings-v2-base-de
+```
+
+### SII_OLLAMA_URL
+
+The URL to reach the Ollama service at. Defaults to http://localhost:11434/.
+
+Example:
+
+```dotenv
+SII_OLLAMA_URL=http://localhost:11444/
+```
 
 ## Job queue
 
