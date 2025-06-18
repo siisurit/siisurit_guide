@@ -1,6 +1,6 @@
 # Work matches
 
-Work matches define rules on how to match work entries in a work track with tasks in a task tracker. There are different kinds of matches that can for example map work entries based on their breadcrumb and text, or a reference to an external URL.
+Work matches define rules on how to match work entries in a work track with tasks in a task tracker. There are different kinds of matches that can, for example, map work entries based on their breadcrumb and text, or a reference to an external URL.
 
 ## Matching projects
 
@@ -20,7 +20,7 @@ They can have the following attributes:
   - `pattern_to_task`: if the regular expressions for text and breadcrumb trail match, map the work entry to a specific task
   - `pattern_to_task_code`: if the regular expressions for text and breadcrumb trail of the work entry match, map it to the task with its `code` matching the value extracted with the named group `task_code`
 
-  For details, see section "[Work match kinds](#work-match-kinds)".
+  For details, see section "[Kinds of work matches](#kinds-of-work-matches)".
 
 - `source_work_trackers`: A list of source work tracker names containing the work entries that should be matched with tasks in the current task tracker.
 
