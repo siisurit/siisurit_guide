@@ -146,7 +146,7 @@ volumes:
 
 ## Run the services
 
-With all files in place, you can now sign in to Siisurit's private docker registry using the sign in information you obtained together with your license:
+With all files in place, you can now sign in to Siisurit's private docker registry using the sign-in information you got together with your license:
 
 ```bash
 docker login docker-registry-ui.siisurit.com
