@@ -3,6 +3,6 @@
 ## Available connectors
 
 - [Clockodo](clockodo.md)
-- GitHub
+- [GitHub](github.md)
 - Kimai
 - YouTrack
