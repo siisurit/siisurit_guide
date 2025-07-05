@@ -2,15 +2,19 @@
 
 [GitHub](https://github.com) is a cloud-based development platform that includes a task tracker.
 
-## Project URLs
+## Terminology
 
-To get the project URL for Siisurit, perform the following steps:
+For consistency, this chapter uses _task_ to refer to GitHub _issues_ and _tracker_ to refer to a _repository_.
 
-1. Open the project's GitHub page in the web browser.
-2. Click on the green "Code" button and copy the repository URL. Both HTTPS or SSH URLs work.<br>
+## Tracker URLs
+
+To get the tracker URL for Siisurit, perform the following steps:
+
+1. Open the tracker's GitHub page in the web browser.
+2. Click on the green "Code" button and in the "Local" tab, copy the URL. Both HTTPS or SSH URLs work.<br>
    ![Choose the project URL in GitHub](github/01-project-url.png)
 
-Example project URLs:
+Example tracker URLs:
 
 - `https://github.com/someone/anything.git`
 - `git@github.com:someone/anything.git`
