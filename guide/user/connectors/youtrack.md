@@ -39,12 +39,11 @@ Most of them are standard fields. "Assignee" and "Assignees" are examples to be 
 
 ### Assignees
 
-By default, Siisurit takes the first custom field of type `user` as assignee. If this field has multiple values, it results in multiple assignees. For simple project
-configurations, this might already be what you want.
+By default, Siisurit takes the first custom field of type `user` as assignee. If this field has multiple values, it results in multiple assignees. For simple tracker configurations, this might already be what you want.
 
-However, some project configurations have multiple `user` fields. For example, to represent different roles like "requirement engineer", "designer", "developer", "tester", "translator", and so on. In this case, you might either choose to treat a specific field or multiple of them as "assignee" in Siisurit.
+However, some tracker configurations have multiple `user` fields. For example, to represent different roles like "requirement engineer", "designer", "developer", "tester", "translator", and so on. In this case, you might either choose to treat a specific field or multiple of them as "assignee" in Siisurit.
 
-Use the tracker option `api_custom_assignee_fields` to specify these fields by name. Be aware these names are **case-sensitive**. For example, to extract the assignee from a single custom field named "Assignee" of type `user`:
+In the configuration YAML, use the tracker option `api_custom_assignee_fields` to specify these fields by name. Be aware these names are **case-sensitive**. For example, to extract the assignee from a single custom field named "Assignee" of type `user`:
 
 ```yaml
 api_custom_assignee_fields: "Assignee"
@@ -104,17 +103,4 @@ trackers:
         source_work_trackers: demo-youtrack
         target_task: various
         priority: 1
-```
-
-If you want to it both a task and work tracker, you can specify the same YouTrack tracker in a work match both as `target_task_tracker` and `source_work_trackers`. For example:
-
-```yaml
-trackers:
-  - name: demo-youtrack
-    ...
-    work_matches:
-      - match_on: pattern_to_task_code # Match to GitHub task
-        source_work_trackers: demo-youtrack
-        priority: 100
-        text_pattern: ".*(?P<task_code>DEMO-\\d+).*"
 ```
