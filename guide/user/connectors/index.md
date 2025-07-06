@@ -6,5 +6,5 @@ Connectors enable Siisurit to transfer data about tasks and work entries from ex
 
 - [Clockodo](clockodo.md)
 - [GitHub](github.md)
-- Kimai
+- [Kimai](kimai.md)
 - [YouTrack](youtrack.md)

@@ -2,9 +2,9 @@
 
 [Clockodo](https://www.clockodo.com/) is a time tracker that can track projects for different customers. It includes billing and reporting. In addition to the web-based user interface, is also offers a mobile app then can be used off-line.
 
-## Project URLs
+## API location
 
-To get the project URL for Siisurit, perform the following steps:
+To get the API location for Siisurit, perform the following steps:
 
 1. Sign in at <https://www.clockodo.com/>.
 2. Navigate to the dashboard.
@@ -27,6 +27,19 @@ To get an API token for Siisurit, perform the following steps.
 3. In the section "Personal data", the "E-mail address" can be seen. For example: `someone@example.com`.
 4. In the section "API key", generate an API key. A typical example looks like: `abcdef01234567890123456789abcdef`.
 
+## Breadcrumb trail and text
+
+The breadcrumb trail in Siisurit is of the form `customer / project / service`.
+
+The text is Siisurit is the description.
+
+As an example, consider the following work entry in the Clockodo app, which results in:
+
+- Breadcrumb trail: `Siisurit / Siisurit Guide / Development`
+- Text: `#29 Add clockdo configuration`
+
+![Example work entry in Clockodo app](clockodo/02-work-entry.png)
+
 ## Example configuration
 
 Using the example values from above and the `api_kind` of `clockodo`, a tracker configuration for Clockodo could look like:
@@ -40,16 +53,3 @@ trackers:
     api_username: "someone@example.com"
     user_mapping: "..." # Set as needed.
 ```
-
-## Breadcrumb trail and text
-
-The breadcrumb trail in Siisurit is of the form `customer / project / service`.
-
-The text is Siisurit is the description.
-
-As an example, consider the following work entry in the Clockodo app, which results in:
-
-- Breadcrumb trail: `Siisurit / Siisurit Guide / Development`
-- Text: `#29 Add clockdo configuration`
-
-![Example work entry in Clockodo app](clockodo/02-work-entry.png)
