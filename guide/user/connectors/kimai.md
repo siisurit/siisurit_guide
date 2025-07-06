@@ -20,7 +20,7 @@ To get the API location for Siisurit, perform the following steps:
 
 Alternatively, you can also choose Administration > Customers, then select a customer and use their URL. For example, `https://kimai.example.com/en/admin/customer/234/details`. With such a URL, all Kimai work entries of this customer are transferred into a single Siisurit tracker.
 
-## API user and token
+## API token
 
 To get a Kimai API token for Siisurit, perform the following steps.
 

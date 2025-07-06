@@ -6,16 +6,16 @@
 
 For consistency, this chapter uses _task_ to refer to YouTrack _issues_ and _work tracking_ to refer to YouTrack _time tracking_, except when referring to specific user interface elements or custom field names in YouTrack.
 
-## Tracker URL
+## API location
 
-Unlike many other trackers, YouTrack does not easily reveal the tracker ID in a URL. Instead, perform the following steps:
+Unlike many other trackers, YouTrack does not easily reveal the API location in the web browser's URL bar by simply navigating to the YouTrack project. Instead, perform the following steps:
 
 1. Open the YouTrack project list, for example: `https://example.youtrack.cloud/projects`
 2. In the project list, click on the project you want Siisurit to connect to.
-3. In the project screen, click "New Issue".
-4. In the "New issue" screen, navigate to the URL bar and copy the URL to your clipboard.
+3. On the project page, click "New Issue".
+4. On the "New issue" page, navigate to the URL bar and copy the URL to your clipboard. This URL is the `api_location` in the YAML configuration (see below).
 
-This URL is the `api_location` in the YAML configuration (see below). It should look something like: `https://example.youtrack.cloud/newIssue?project=DEMO&draftId=1-23`
+The URL should look something like: `https://example.youtrack.cloud/newIssue?project=DEMO&draftId=1-23`
 
 From this, Siisurit can extract the base URL `https://example.youtrack.cloud/` and the project shortname `DEMO`, which is also used as prefix for tasks, for example: `DEMO-123`.
 

@@ -6,9 +6,9 @@
 
 For consistency, this chapter uses _task_ to refer to GitHub _issues_ and _tracker_ to refer to a _repository_.
 
-## Tracker URLs
+## API location
 
-To get the tracker URL for Siisurit, perform the following steps:
+To get the GitHub API location for Siisurit, perform the following steps:
 
 1. Open the tracker's GitHub page in the web browser.
 2. Click on the green "Code" button and in the "Local" tab, copy the URL. Both HTTPS or SSH URLs work.<br>
