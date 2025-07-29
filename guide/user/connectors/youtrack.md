@@ -55,7 +55,7 @@ To combine multiple fields, use a comma-separated list of fields. For example:
 api_custom_assignee_fields: "Owner, Developer, Tester, Translator"
 ```
 
-## Work tracking and estimates
+### Work tracking and estimates
 
 !!! warning "Missing support for work tracking"
 
