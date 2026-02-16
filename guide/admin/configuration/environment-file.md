@@ -66,6 +66,22 @@ Default: True.
 
 IP addresses and hostnames of trusted origins for safe requests as described in [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/4.2/ref/settings/#csrf-trusted-origins). Multiple entries can be separated using a space or comma.
 
+### SII_MAX_UPLOAD_SIZE
+
+The maximum size of uploaded files as number and unit. The unit can be empty, "K" (kilo), "M" (mega), or "G" (giga), optionally followed by a "B" (for "byte"). For example:
+
+- 50M (for 50 megabytes)
+- 200kb (for 200 kilobytes)
+- 0.5g (for 500 megabytes)
+
+The default is 20MB.
+
+### SII_MCP
+
+If `true`, model context protocol (MCP) clients can connect to Siisurit.
+
+The default us `false`.
+
 ### SII_POSTGRES\*\*
 
 Settings for PostgreSQL database:
