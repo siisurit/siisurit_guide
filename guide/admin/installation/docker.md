@@ -12,11 +12,11 @@ The following will assume an Ubuntu 24 LTS server and a file structure like the 
 .env
 compose.yaml
 config/
-- example-organization.yaml
-- users.csv
+├─ example-organization.yaml
+├─ users.csv
 ```
 
-In the following, all these files are be explained using common example you can you as basis for your own configuration.
+In the following, all these files are explained using common examples you can you as a basis for your own configuration.
 
 ## Example organization
 
@@ -35,7 +35,7 @@ The environment file `.env` contains the settings for the Siisurit service. This
 - Security settings
 - Access restrictions
 
-As starting point:
+As a starting point:
 
 ```bash
 SII_ENVIRONMENT=test
@@ -60,7 +60,7 @@ SII_POSTGRES_PORT=5432
 SII_POSTGRES_USERNAME=siisurit
 ```
 
-In addition, you will want to add any tokens for your task and time trackers here, so that they can be referred to in the organization configuration without the person maintaining it have to knew them.
+In addition, you will want to add any tokens for your task and time trackers here so that they can be referred to in the organization configuration without the person maintaining it having to know them.
 
 For example, this could be the settings for a project that uses GitHub as task tracker and Kimai as time tracker:
 
@@ -117,27 +117,22 @@ services:
     container_name: "siisurit-backend"
     image: "docker-registry-ui.siisurit.com/siisurit-backend:latest"
     command: >-
-      gunicorn
-        --access-logfile -
-        --bind 0.0.0.0:8000
-        --capture-output
-        --name siisurit_stage
+      granian
+        --access-log
+        --host 0.0.0.0 --port 8000
+        --interface wsgi
+        --process-name siisurit
+        --static-path-mount /home/app/web/static
+        --static-path-route /static
         --workers 3
         siisurit.wsgi:application
     volumes:
       - ./config/:/mnt/config/
       - static-data:/home/app/web/static
+    ports:
+      - "8234:8000"
     env_file:
       - ".env"
-
-  frontend:
-    container_name: "siisurit-frontend"
-    image: "docker-registry-ui.siisurit.com/siisurit-frontend:latest"
-    volumes:
-      - static-data:/home/app/web/static
-    ports:
-      - "8235:80"
-      - "8234:81"
 
 volumes:
   postgres-data:
@@ -169,16 +164,17 @@ docker compose up
 In the log you can see how the service startup is progressing. Eventually the following should show, indicating that the backend is now ready to accept requests:
 
 ```
-siisurit-backend   | ... [INFO] Starting gunicorn 23.x.x
-siisurit-backend   | ... [INFO] Listening at: http://0.0.0.0:8000 (1)
+siisurit-backend   | [INFO] Starting granian (main PID: 1)
+siisurit-backend   | [INFO] Listening at: http://0.0.0.0:8000
+siisurit-backend   | [INFO] Spawning worker-1 with PID: 35
+siisurit-backend   | [INFO] ...
+siisurit-backend   | [INFO] Started worker-1
 ```
 
 You can now check the availability of the services. For example, with [curl](https://curl.se/):
 
 ```bash
 $ curl -Is http://localhost:8234 | head -1
-HTTP/1.1 200 OK
-$ curl -Is http://localhost:8235 | head -1
 HTTP/1.1 200 OK
 ```
 

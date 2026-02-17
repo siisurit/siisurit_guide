@@ -8,3 +8,4 @@ Welcome to the Siisurit user guide.
 - [Connectors](connectors/index.md)
 - [Report views](report-views.md)
 - [Grafana](grafana/index.md)
+- [Model context protocol (MCP)](mcp.md)
