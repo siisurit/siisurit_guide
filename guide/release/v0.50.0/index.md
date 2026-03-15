@@ -13,9 +13,11 @@ This means both the configuration file for nginx and the `compose.yaml` are smal
 
 As a drawback, the current user interface looks less nice than the Flutter one. It should gradually improve over time, though.
 
-See the example `compose.yaml` in the chapter about [docker installation](../../admin/installation/docker.md) for what to change. Essentioally:
+See the example `compose.yaml` in the chapter about [docker installation](../../admin/installation/docker.md) for what to change. Essentially:
 
 - In the backend container:
   - Change `gunicorn` to `granian` including the parameters.
   - Add `ports`.
 - Remove the `frontend` container.
+
+If you are using nginx as a reverse proxy to serve your domain and add HTTPS as suggested in the chapter about [nginx setup](../../admin/installation/nginx.md), apply the new template. Essentially, it consolidates two domains into one.
