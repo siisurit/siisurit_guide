@@ -62,7 +62,7 @@ SII_POSTGRES_USERNAME=siisurit
 
 In addition, you will want to add any tokens for your task and time trackers here so that they can be referred to in the organization configuration without the person maintaining it having to know them.
 
-For example, this could be the settings for a project that uses GitHub as task tracker and Kimai as time tracker:
+For example, this could be the settings for a project that uses GitHub as a task tracker and Kimai as a work tracker:
 
 ```bash
 EXAMPLE_GITHUB_USERNAME="alice"
@@ -78,18 +78,23 @@ The users file `users.csv` contains the users to be created each time siisurit r
 Example (change the passwords):
 
 ```csv
-username,password,is_staff,is_superuser,first_name,last_name,email
-admin_alice,not-secret,x,x,Alice,Adams,support@example.com
-alice,not-secret,x,x,,Alice,Adams,alice@example.com
-alice,not-secret,,,Alice,Adams
-bob,not-secret,,,Bob,Brown
-claire,not-secret,,,Claire,Clark
-daniel,not-secret,,,Daniel,Davis
+username,password,is_staff,is_superuser,name,email
+admin_alice,not-secret,x,x,Alice Adams (Admin),support@example.com
+alice,not-secret,x,x,,Alice Adams,alice@example.com
+bob,not-secret,,,Bob Brown
+claire,not-secret,,,Claire Clark
+daniel,not-secret,,,Daniel Davis
 ```
 
-The `is_staff` column indicates the user can log in at the admin interface of the backend, and can read most data available there.
+The `username` is the name under which the user will sign in.
 
-The `is_superuser` marks as user as site administrator, which add permission to edit data in the admin interface, and upload new organizations from scratch.
+The `password` is the password to sign in. This can be a reference to an environment variable, for example: `${INITIAL_PASSWORD}`. Only this particular syntax is supported. The curly braces are required. If there are any characters before the `$` and after the `}`, the value is considered a literal password.
+
+The `is_active` column indicated whether the user can sign in. By default, this is enabled.
+
+The `is_staff` column indicates the user can log in at the admin interface of the backend, and can read most data available there. By default, this is disabled.
+
+The `is_superuser` marks as user as site administrator, which add permission to edit data in the admin interface, and upload new organizations from scratch. By default, this is disabled.
 
 ## Compose file: compose.yaml
 

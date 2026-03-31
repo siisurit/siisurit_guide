@@ -22,7 +22,7 @@ Running this particular command shows the quick help of the [make_users](make_us
 
 ## Quick help
 
-All management commands support the option `--help`, which shows a concise help text. This includes a short description of the purpose of the command and which options are available. Each option has its own description, which typically includes valid values or ranges, and the default (if any).
+All management commands support the option `--help`, which shows a concise help text. This includes a short description with the purpose of the command and which options are available. Each option has its own description, which typically includes valid values or ranges, and the default (if any).
 
 ## Additional error details
 
@@ -51,11 +51,15 @@ These commands allow finding and utilizing similar tasks.
 - [update_ollama_models](update_ollama_models.md): Ensure that all relevant Ollama models are available.
 - [update_search](update_search.md): Update search index of similar tasks.
 
-## Command related to reporting
+## Commands related to reporting
 
 - [clear_reports](clear_reports.md): Remove all reports related SQL components, except for the "report" schema
 - [make_reports](make_reports.md): Add report related SQL components
 - [make_report_user](make_report_user.md): Create a PostgreSQL user with read-only access to reports
+
+## Commands related to demo data
+
+- [make_demo_organization](make_demo_organization.md): Make an organization fill with demo data
 
 ## Django commands
 
