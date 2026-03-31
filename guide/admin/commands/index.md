@@ -59,7 +59,8 @@ These commands allow finding and utilizing similar tasks.
 
 ## Commands related to demo data
 
-- [make_demo_organization](make_demo_organization.md): Make an organization fill with demo data
+- [make_demo_organization](make_demo_organization.md): Make an organization filled with demo data
+- [make_demo_project](make_demo_project.md): Add a project filled with demo data
 
 ## Django commands
 
