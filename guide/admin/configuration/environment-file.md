@@ -13,7 +13,7 @@ FAVORITE_NUMBER=23
 GREETING="Hello ${FULL_NAME}, your favorite number is ${FAVORITE_NUMBER}"
 ```
 
-For more information about this format refer to the [README](https://github.com/theskumar/python-dotenv/blob/main/README.md) of the dotenv project.
+For more information about this format, refer to the [README](https://github.com/theskumar/python-dotenv/blob/main/README.md) of the dotenv project.
 
 # Environment variables
 
@@ -66,9 +66,15 @@ Default: True.
 
 IP addresses and hostnames of trusted origins for safe requests as described in [CSRF_TRUSTED_ORIGINS](https://docs.djangoproject.com/en/4.2/ref/settings/#csrf-trusted-origins). Multiple entries can be separated using a space or comma.
 
+### SII_EXPERIMENTAL
+
+If `true`, some experimantal features are enabled.
+
+The default is `false` unless `SII_DEV_DEBUG` is set.
+
 ### SII_MAX_UPLOAD_SIZE
 
-The maximum size of uploaded files as number and unit. The unit can be empty, "K" (kilo), "M" (mega), or "G" (giga), optionally followed by a "B" (for "byte"). For example:
+The maximum size of uploaded files as a number and unit. The unit can be empty, "K" (kilo), "M" (mega), or "G" (giga), optionally followed by a "B" (for "byte"). For example:
 
 - 50M (for 50 megabytes)
 - 200kb (for 200 kilobytes)
@@ -106,9 +112,23 @@ Settings for SMTP server to send emails as described in [Sending email](https://
 - SII_EMAIL_USERNAME: Defaults to empty.
 - SII_EMAIL_PASSWORD: Defaults to empty.
 
+### SII_SIGN_IN_NOTE
+
+A note to show on the sign-in page below the "Sign in" button. The text shows rendered as info admonition.
+
+The text can use Markdown formatting. Use `\n\n` to seperate multiple paragraphs.
+
+The default is an empty text, which results in showing no note at all.
+
+Example:
+
+```bash
+SII_SIGN_IN_NOTE="This is a development server.\n\nSign in as user `admin` and the password '`Test.123`'."
+```
+
 ### SII_UUID_HOST
 
-Internally, Siisurit uses [UUIDv7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for unique identifiers of database entries. This essentially consists of a timestamp and a random number. This allows better cache prediction than other UUID versions, and reduces the probability of clashes compared to the fully random UUIDv4. However, different hosts can still generate the same UUID, although with a very low probability.
+Internally, Siisurit uses [UUIDv7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for unique identifiers of database entries. This essentially consists of a timestamp and a random number. This allows better cache prediction than other UUID versions and reduces the probability of clashes compared to the fully random UUIDv4. However, different hosts can still generate the same UUID, although with a very low probability.
 
 To guarantee uniqueness even across hosts, a host ID can be included.
 
@@ -159,6 +179,34 @@ Example:
 ```dotenv
 SII_OLLAMA_URL=http://localhost:11444/
 ```
+
+## Docker
+
+When using the [standard Docker image](../installation/docker.md), the following environment variables can be used to control the behavior during startup.
+
+!!! warning "Differences to other environment variables"
+
+    These environment variables are only checked in the `entrypoint.sh` script of the container and are not part of the application. If you build you own Docker image or modify the `entrypoint.sh` script, they might not work as described.
+
+    Boolean values are picky and case sensitive. The liternal value `true`(all lowercase) is the only value recognized as true. Variants such as `True` or `TRUE` are treated as false.
+
+### SII_DOCKER_MAKE_DEMO
+
+If `true`, automatically create a demo organization with some demo members and a project.
+
+To sign in as demo member, use `bbuilder`, `ccaoch` or `dedeveloper` with the demo password.
+
+This has a similar effect to running [make_demo_organization](../commands/make_demo_organization.md) and [make_demo_project](../commands/make_demo_project.md) with their respective default options.
+
+### SII_DOCKER_RESET_DATABASE
+
+If `true`, reset the database and remove all data inside it. This is useful for testing on a new server, or when there were major changes in the data model and a reset is required according to the change notes.
+
+!!! warning "This is a destructive operation without any further confirmation."
+
+    Consider making a backup of the database before running this command.
+
+### SII_DOCKER_RESET_STATIC
 
 ## Job queue
 

@@ -4,21 +4,21 @@ The user list is a text file
 
 ## Basic format
 
-The user list is a comma separated values ([CSV](https://en.wikipedia.org/wiki/Comma-separated_values)) file, where each line describes exactly one user.
+The user list is a comma-separated values ([CSV](https://en.wikipedia.org/wiki/Comma-separated_values)) file, where each line describes exactly one user.
 
 The first line is a heading that describes the column.
 
 - username (text): The username to use for signing in. If empty, the email will be used instead.
 - email (text): The email address of the user
-- full_name (text): The full name of a person, for example: Alice Adams
+- full_name (text): The full name of a person, for example, Alice Adams
 - is_active (boolean, default: true): If enabled, the user can sign in.
 - is_staff (boolean, default: false): If enabled, the user can sign in at the admin site but can only see parts of the available data. For many of them, access is restricted to only reading them.
-- is_superuser (default: false): If enabled, the user can sign in at the admin site and can read and write almost all data. The exception are data that are computed dynamically.
+- is_superuser (default: false): If enabled, the user can sign in at the admin site and can read and write almost all data. The exceptions are data that are computed dynamically.
 - password (text): The initial password that can be used to sign in.
 
 All these attributes are optional, but at least one of `username` or `email` must be specified.
 
-If no `username` is set, the `email` can be used for sign in instead.
+If no `username` is set, the `email` can be used for signing in instead.
 
 If no `email` is set, Siisurit will not be able to send email to a user. Users can however sign in using their `username`.
 
@@ -39,7 +39,7 @@ alice,not-secret
 bob,not-secret
 ```
 
-Assuming a site admin has already been created, more users can be added with more details. If the username is missing but an email is specified, the email will also be used as username to sign in.
+Assuming a site admin has already been created, more users can be added with more details. If the username is missing but an email is specified, the email will also be used as the username to sign in.
 
 ```csv
 full_name,email,password
