@@ -11,7 +11,7 @@ site_dir: build/guide
 site_author: "Siisurit e.U."
 site_description: "User and admin documentation for Siisurit, an application to improve your project planing abilities."
 
-copyright: Copyright &copy; 2025 <a href="https://siisurit.com">Siisurit e.U.</a>.
+copyright: Copyright &copy; 2025-2026 <a href="https://siisurit.com">Siisurit e.U.</a>.
 
 nav:
   - Overview: index.md
