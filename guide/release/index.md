@@ -2,6 +2,7 @@
 
 These release notes collect information about what has changed over time and any manual steps to perform to upgrade from one release to another.
 
+- [v0.54.0](v0.54.0/index.md)
 - [v0.53.0](v0.53.0/index.md)
 - [v0.52.0](v0.52.0/index.md)
 - [v0.51.0](v0.51.0/index.md)
