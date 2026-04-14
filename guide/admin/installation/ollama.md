@@ -26,7 +26,7 @@ Alternatively, you can run ollama from the [compose.yaml](../configuration/compo
 services:
   ollama:
     container_name: "siisurit-ollama"
-    image: ollama/ollama:0.9.1
+    image: ollama/ollama:latest
     volumes:
       - ollama-data:/root/.ollama
     env_file:
