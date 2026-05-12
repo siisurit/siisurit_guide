@@ -6,6 +6,7 @@ Welcome to the Siisurit user guide.
 
 - [Configuration](configuration/index.md)
 - [Connectors](connectors/index.md)
+- [Ownership](ownership.md)
 - [Report views](report-views.md)
 - [Grafana](grafana/index.md)
 - [Model context protocol (MCP)](mcp.md)
